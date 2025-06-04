@@ -1,0 +1,14 @@
+{
+  "name": "Project CTRL",
+  "short_name": "CTRL",
+  "icons": [
+    {
+      "src": "quotes-icon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#E8F4FF",
+  "background_color": "#E8F4FF",
+  "display": "standalone"
+} 
