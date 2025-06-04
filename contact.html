@@ -32,7 +32,7 @@
       
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="_replyto" required>
+        <input type="email" id="email" name="email" required>
       </div>
       
       <div class="form-group">
@@ -45,6 +45,8 @@
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
       
+      <input type="hidden" name="_subject" value="New submission from Project CTRL">
+      <input type="hidden" name="_next" value="https://genavivermz.github.io/projectctrl/contact.html">
       <button type="submit">Send Message</button>
     </form>
   </section>
