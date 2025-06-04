@@ -20,14 +20,14 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <h1>Our Services</h1>
+    <h1>"Our Services"</h1>
   </header>
 
   <section class="metrics">
     <div class="features-grid">
       <div class="feature">
         <div class="metric" data-target="0">Pending</div>
-        <p>Active Users</p>
+        <p>Innovations</p>
       </div>
       <div class="feature">
         <div class="metric" data-target="0">Pending</div>
@@ -136,6 +136,39 @@
       gap: 30px;
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    .metrics {
+      padding: 40px 20px;
+    }
+
+    .metrics .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .metrics .feature {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #1E3A8A;
+      margin-bottom: 10px;
+    }
+
+    .metrics .feature p {
+      margin: 0;
+      font-size: 1.1em;
+      color: #4B5563;
     }
 
     .feature-column {
