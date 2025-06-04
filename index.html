@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project CTRL</title>
+  <title>Project CTRL - Take Control of Your Projects and Ideas</title>
+  <meta name="description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control." />
+  <meta name="keywords" content="Project CTRL, project management, startup platform, business development, community platform" />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Project CTRL - Take Control of Your Projects and Ideas" />
+  <meta property="og:description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://genavivermz.github.io/projectctrl/" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://genavivermz.github.io/projectctrl/" />
+  
   <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
   <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
@@ -13,6 +25,22 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Helvetica fallback -->
   <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet" />
+  
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Project CTRL",
+      "url": "https://genavivermz.github.io/projectctrl/",
+      "logo": "https://genavivermz.github.io/projectctrl/favicon.svg",
+      "description": "Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control.",
+      "founder": {
+        "@type": "Person",
+        "name": "Genavive Ramirez"
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -35,7 +63,15 @@
   </section>
 
   <section class="services">
-    <h2>Services</h2>
+    <div class="services-header">
+      <h2>Services</h2>
+      <a href="services.html" class="section-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
     <ul>
       <li>Free platform to build or support projects, startups, ideas, and businesses</li>
       <li>For students, creators, families, and changemakers</li>
@@ -44,6 +80,58 @@
       <li>Roadmaps, templates, planners, mentorship, shoutouts, guides</li>
     </ul>
   </section>
+
+  <style>
+    .services {
+      padding: 40px 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .services h2 {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .services ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-link {
+      color: #1E3A8A;
+      transition: transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      padding: 15px;
+      margin: -10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .section-link:hover {
+      transform: translateX(5px);
+      background-color: rgba(30, 58, 138, 0.1);
+    }
+
+    .section-link svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
 
   <footer>
     <p>© 2025 Project CTRL</p>
