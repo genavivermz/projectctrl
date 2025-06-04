@@ -39,9 +39,16 @@
   <section class="platform-features">
     <h2>Platform Features</h2>
     <div class="features-grid">
-      <div class="feature">
-        <h3>Project Development</h3>
-        <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+      <div class="feature-column">
+        <h3>Project Counseling</h3>
+        <ul class="feature-list">
+          <li>
+            <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+          </li>
+          <li>
+            <p>Learn essential business, project building, and research skills through our comprehensive guides and educational resources.</p>
+          </li>
+        </ul>
         <a href="resources-coming-soon.html" class="feature-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -49,29 +56,16 @@
           </svg>
         </a>
       </div>
-      <div class="feature">
-        <h3>Visibility Boosts</h3>
-        <p>Get your projects featured and advertised across vast networks of potential collaborators, investors, and supporters.</p>
-        <a href="resources-coming-soon.html" class="feature-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-      <div class="feature">
-        <h3>Resource Library</h3>
-        <p>Learn essential business, project building, and research skills through our comprehensive guides and educational resources.</p>
-        <a href="resources-coming-soon.html" class="feature-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-      <div class="feature">
-        <h3>Networking</h3>
-        <p>Join a network of like-minded individuals working towards their goals.</p>
+      <div class="feature-column">
+        <h3>Visibility & Networking</h3>
+        <ul class="feature-list">
+          <li>
+            <p>Get your projects featured and advertised across vast networks of potential collaborators, investors, and supporters.</p>
+          </li>
+          <li>
+            <p>Join a network of like-minded individuals working towards their goals, and explore opportunities to contribute to or lead initiatives with Project CTRL.</p>
+          </li>
+        </ul>
         <a href="resources-coming-soon.html" class="feature-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -132,13 +126,57 @@
   </script>
 
   <style>
-    .feature {
-      position: relative;
-      padding: 20px;
+    .platform-features {
+      padding: 40px 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-column {
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+    }
+
+    .feature-column h3 {
+      color: #1E3A8A;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+      flex-grow: 1;
+    }
+
+    .feature-list li {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list p {
+      margin: 0;
+      line-height: 1.6;
     }
 
     .feature-link {
@@ -156,6 +194,12 @@
     .feature-link svg {
       width: 20px;
       height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </body>
