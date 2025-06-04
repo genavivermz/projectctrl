@@ -57,6 +57,112 @@
     <p>Regain control. Empower agency. Simplify life.</p>
   </header>
 
+  <div class="submission-banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <span class="highlight">Turn Your Vision Into Reality</span>
+        <h2>Ready to Share Your Story?</h2>
+        <p>Join our growing community and get your project or business seen by the right people.</p>
+      </div>
+      <a href="submit-project.html" class="banner-cta">
+        Submit Your Project
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <style>
+    .submission-banner {
+      background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%);
+      padding: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+    }
+
+    .banner-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .banner-text {
+      flex: 1;
+    }
+
+    .banner-text h2 {
+      margin: 10px 0;
+      color: #1E3A8A;
+      font-size: 1.8em;
+    }
+
+    .banner-text p {
+      margin: 0;
+      color: #475569;
+      font-size: 1.1em;
+    }
+
+    .highlight {
+      display: inline-block;
+      background: #1E3A8A;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .banner-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1E3A8A;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .banner-cta:hover {
+      background: #2563EB;
+      transform: translateX(5px);
+    }
+
+    .banner-cta svg {
+      transition: transform 0.2s ease;
+    }
+
+    .banner-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .banner-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .banner-text h2 {
+        font-size: 1.5em;
+      }
+
+      .banner-text p {
+        font-size: 1em;
+      }
+    }
+  </style>
+
   <section class="our-purpose">
     <h2>Our Purpose</h2>
     <p>Built for the caretakers, the strivers, the kids without a map. Project CTRL helps you take control of your time, your ideas, and your next move.</p>
