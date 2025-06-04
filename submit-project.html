@@ -32,6 +32,15 @@
     <form id="projectSubmissionForm" class="contact-form" action="https://formspree.io/f/movwvvvj" method="POST">
       <h2>Project Details</h2>
       
+      <div class="visibility-tip">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <p>Projects with detailed filter information receive up to 3x more visibility on the Project Hub!</p>
+      </div>
+      
       <!-- Project Basic Information -->
       <div class="form-group">
         <h3>Basic Information</h3>
@@ -105,8 +114,8 @@
         <label for="teamSize">Team Size</label>
         <select id="teamSize" name="teamSize">
           <option value="">Select team size</option>
-          <option value="solo">Solo</option>
-          <option value="team">Team</option>
+          <option value="small">Small</option>
+          <option value="large">Large</option>
         </select>
 
         <label for="audience">Target Audience</label>
@@ -174,5 +183,57 @@
   <footer>
     <p>© 2025 Project CTRL</p>
   </footer>
+
+  <style>
+    .visibility-tip {
+      background-color: #E8F4FF;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 20px 0 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .visibility-tip svg {
+      flex-shrink: 0;
+      color: #1E3A8A;
+    }
+
+    .visibility-tip p {
+      margin: 0;
+      color: #1E3A8A;
+      font-size: 1.1em;
+      line-height: 1.4;
+    }
+  </style>
+
+  <script>
+    document.getElementById('projectSubmissionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Submit the form data
+      fetch("https://formspree.io/f/movwvvvj", {
+        method: "POST",
+        body: new FormData(e.target),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Store success message in sessionStorage
+          sessionStorage.setItem('projectSubmitted', 'true');
+          // Redirect to projects page
+          window.location.href = 'projects.html';
+        } else {
+          alert('Oops! There was a problem submitting your project. Please try again.');
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('Oops! There was a problem submitting your project. Please try again.');
+      });
+    });
+  </script>
 </body>
 </html> 

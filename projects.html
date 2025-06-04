@@ -56,6 +56,121 @@
     <h1>"Project Hub"</h1>
   </header>
 
+  <div id="successMessage" class="success-message" style="display: none;">
+    <div class="success-content">
+      <span class="message-text">✨ Your vision is taking flight! We're excited to help you succeed.</span>
+      <button class="close-button" onclick="hideSuccessMessage()">×</button>
+    </div>
+  </div>
+
+  <style>
+    .success-message {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1E3A8A;
+      color: white;
+      padding: 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .success-message.visible {
+      opacity: 1;
+    }
+
+    .success-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 20px;
+    }
+
+    .message-text {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0 5px;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .close-button:hover {
+      opacity: 1;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -100%);
+      }
+      to {
+        transform: translate(-50%, 0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translate(-50%, 0);
+      }
+      to {
+        transform: translate(-50%, -100%);
+      }
+    }
+
+    .success-message.slide-in {
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .success-message.slide-out {
+      animation: slideOut 0.5s ease forwards;
+    }
+  </style>
+
+  <script>
+    function showSuccessMessage() {
+      const message = document.getElementById('successMessage');
+      message.style.display = 'block';
+      // Force reflow
+      message.offsetHeight;
+      message.classList.add('visible', 'slide-in');
+      
+      // Auto-dismiss after 10 seconds
+      setTimeout(hideSuccessMessage, 10000);
+    }
+
+    function hideSuccessMessage() {
+      const message = document.getElementById('successMessage');
+      message.classList.remove('visible');
+      message.classList.add('slide-out');
+      
+      // Remove the message from DOM after animation
+      setTimeout(() => {
+        message.style.display = 'none';
+        message.classList.remove('slide-out');
+      }, 500);
+    }
+
+    // Check if we should show the success message
+    window.addEventListener('load', function() {
+      if (sessionStorage.getItem('projectSubmitted')) {
+        showSuccessMessage();
+        sessionStorage.removeItem('projectSubmitted');
+      }
+    });
+  </script>
+
   <section class="project-filters">
     <div class="filters-header">
       <h2>Filter Projects</h2>
