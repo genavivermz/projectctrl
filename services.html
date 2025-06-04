@@ -42,14 +42,32 @@
       <div class="feature">
         <h3>Project Development</h3>
         <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+        <a href="resources-coming-soon.html" class="feature-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
       <div class="feature">
         <h3>Visibility Boosts</h3>
         <p>Get your projects featured and advertised across vast networks of potential collaborators, investors, and supporters.</p>
+        <a href="resources-coming-soon.html" class="feature-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
       <div class="feature">
         <h3>Resource Library</h3>
-        <p>Browse our extensive collection of tools, templates, and guides.</p>
+        <p>Learn essential business and research skills through our comprehensive guides and educational resources.</p>
+        <a href="resources-coming-soon.html" class="feature-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
       <div class="feature">
         <h3>Networking</h3>
@@ -106,5 +124,33 @@
 
     metrics.forEach(metric => observer.observe(metric));
   </script>
+
+  <style>
+    .feature {
+      position: relative;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .feature-link {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      color: #1E3A8A;
+      transition: transform 0.2s;
+    }
+
+    .feature-link:hover {
+      transform: translateX(5px);
+    }
+
+    .feature-link svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
 </body>
 </html> 
