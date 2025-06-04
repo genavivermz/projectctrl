@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services - Project CTRL</title>
+  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
+  <link rel="icon" type="image/png" href="quotes-icon.png">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Helvetica fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Our Services</h1>
+  </header>
+
+  <section class="metrics">
+    <div class="features-grid">
+      <div class="feature">
+        <div class="metric" data-target="5000">0</div>
+        <p>Active Users</p>
+      </div>
+      <div class="feature">
+        <div class="metric" data-target="150">0</div>
+        <p>Project Templates</p>
+      </div>
+      <div class="feature">
+        <div class="metric" data-target="300">0</div>
+        <p>Expert Mentors</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="platform-features">
+    <h2>Platform Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>Project Development</h3>
+        <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+      </div>
+      <div class="feature">
+        <h3>Mentorship</h3>
+        <p>Connect with experienced mentors in your field of interest.</p>
+      </div>
+      <div class="feature">
+        <h3>Resource Library</h3>
+        <p>Browse our extensive collection of tools, templates, and guides.</p>
+      </div>
+      <div class="feature">
+        <h3>Community Support</h3>
+        <p>Join a network of like-minded individuals working towards their goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li>Sign up for a free account</li>
+      <li>Browse projects and resources by field or goal</li>
+      <li>Access templates and planning tools</li>
+      <li>Connect with mentors and community members</li>
+      <li>Track your progress and celebrate achievements</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>© 2025 Project CTRL</p>
+  </footer>
+
+  <script>
+    // Number animation
+    const metrics = document.querySelectorAll('.metric');
+    
+    const animateValue = (element, start, end, duration) => {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.getAttribute('data-target'));
+          animateValue(entry.target, 0, target, 2000);
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.5
+    });
+
+    metrics.forEach(metric => observer.observe(metric));
+  </script>
+</body>
+</html> 
