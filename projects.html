@@ -41,29 +41,26 @@
       }
     }
   </script>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html" class="active">Project Hub</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <h1>"Project Hub"</h1>
-  </header>
 
-  <div id="successMessage" class="success-message" style="display: none;">
-    <div class="success-content">
-      <span class="message-text">✨ Your vision is taking flight! We're excited to help you succeed.</span>
-      <button class="close-button" onclick="hideSuccessMessage()">×</button>
-    </div>
-  </div>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
 
   <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
     .success-message {
       position: fixed;
       top: 20px;
@@ -92,7 +89,7 @@
 
     .message-text {
       font-size: 1.1em;
-      font-weight: 500;
+      font-weight: normal;
     }
 
     .close-button {
@@ -105,6 +102,7 @@
       line-height: 1;
       opacity: 0.8;
       transition: opacity 0.2s ease;
+      font-weight: normal;
     }
 
     .close-button:hover {
@@ -136,7 +134,116 @@
     .success-message.slide-out {
       animation: slideOut 0.5s ease forwards;
     }
+
+    .project-filters {
+      margin-bottom: 30px;
+    }
+
+    .filters-header h2 {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .filter-btn {
+      font-weight: normal;
+    }
+
+    .project-card {
+      font-weight: normal;
+    }
+
+    .project-title {
+      font-weight: normal;
+    }
+
+    .project-stage {
+      font-weight: normal;
+    }
+
+    .project-description {
+      font-weight: normal;
+    }
+
+    .creator-name {
+      font-weight: normal;
+    }
+
+    .project-link {
+      font-weight: normal;
+    }
+
+    .tag {
+      font-weight: normal;
+    }
+
+    .submit-project-banner h2 {
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    .submit-project-banner p {
+      font-weight: normal;
+    }
+
+    .cta-button {
+      font-weight: normal;
+    }
+
+    .toggle-text {
+      font-weight: normal;
+    }
+
+    .metrics-banner {
+      background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%);
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .metric-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .metric-label {
+      color: #1E3A8A;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-number {
+      color: #1E3A8A;
+      font-size: 2em;
+      font-weight: normal;
+    }
   </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html" class="active">Project Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>"Project Hub"</h1>
+  </header>
+
+  <div id="successMessage" class="success-message" style="display: none;">
+    <div class="success-content">
+      <span class="message-text">✨ Your vision is taking flight! We're excited to help you succeed.</span>
+      <button class="close-button" onclick="hideSuccessMessage()">×</button>
+    </div>
+  </div>
 
   <script>
     function showSuccessMessage() {
@@ -167,6 +274,25 @@
       if (sessionStorage.getItem('projectSubmitted')) {
         showSuccessMessage();
         sessionStorage.removeItem('projectSubmitted');
+      }
+    });
+
+    // Function to count projects and update services page
+    function updateProjectCount() {
+      const projectCards = document.querySelectorAll('.project-card');
+      const count = projectCards.length;
+      
+      // Store the count in localStorage for services page
+      localStorage.setItem('projectCount', count);
+    }
+
+    // Run counter on page load
+    document.addEventListener('DOMContentLoaded', updateProjectCount);
+
+    // Run counter after form submission (when new project is added)
+    window.addEventListener('load', function() {
+      if (sessionStorage.getItem('projectSubmitted')) {
+        updateProjectCount();
       }
     });
   </script>

@@ -6,8 +6,146 @@
   <title>Services - Project CTRL</title>
   <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css" />
-  <!-- Helvetica fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .platform-features {
+      padding: 40px 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .metrics {
+      padding: 40px 20px;
+    }
+
+    .metrics .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .metrics .feature {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric {
+      font-size: 2.5em;
+      color: #1E3A8A;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .metrics .feature p {
+      margin: 0;
+      font-size: 1.1em;
+      color: #4B5563;
+      font-weight: normal;
+    }
+
+    .feature-column {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+    }
+
+    .feature-column h3 {
+      color: #1E3A8A;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+      flex-grow: 1;
+    }
+
+    .feature-list li {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list p {
+      margin: 0;
+      line-height: 1.6;
+      font-weight: normal;
+    }
+
+    .feature-link {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      color: #1E3A8A;
+      transition: transform 0.2s;
+      padding: 15px;
+      margin: -10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .feature-link:hover {
+      transform: translateX(5px);
+      background-color: rgba(30, 58, 138, 0.1);
+    }
+
+    .feature-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
 </head>
 <body>
   <header>
@@ -30,7 +168,7 @@
         <p>Innovations</p>
       </div>
       <div class="feature">
-        <div class="metric" data-target="0">Pending</div>
+        <div class="metric" data-target="manual">0</div>
         <p>Project Templates</p>
       </div>
     </div>
@@ -117,8 +255,19 @@
     const observerCallback = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const target = parseInt(entry.target.getAttribute('data-target'));
-          animateValue(entry.target, 0, target, 2000);
+          const dataTarget = entry.target.getAttribute('data-target');
+          
+          // Handle innovations metric (syncs with project count)
+          if (dataTarget === "0") {
+            const projectCount = localStorage.getItem('projectCount') || 0;
+            const target = parseInt(projectCount);
+            animateValue(entry.target, 0, target, 2000);
+          }
+          // Handle project templates metric (stays at 0)
+          else if (dataTarget === "manual") {
+            entry.target.textContent = "0";
+          }
+          
           observer.unobserve(entry.target);
         }
       });
@@ -129,124 +278,18 @@
     });
 
     metrics.forEach(metric => observer.observe(metric));
-  </script>
 
-  <style>
-    .platform-features {
-      padding: 40px 20px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .metrics {
-      padding: 40px 20px;
-    }
-
-    .metrics .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .metrics .feature {
-      text-align: center;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .metric {
-      font-size: 2.5em;
-      font-weight: bold;
-      color: #1E3A8A;
-      margin-bottom: 10px;
-    }
-
-    .metrics .feature p {
-      margin: 0;
-      font-size: 1.1em;
-      color: #4B5563;
-    }
-
-    .feature-column {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      height: 100%;
-    }
-
-    .feature-column h3 {
-      color: #1E3A8A;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-      text-align: center;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 40px 0;
-      flex-grow: 1;
-    }
-
-    .feature-list li {
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      background: #f8fafc;
-    }
-
-    .feature-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-list p {
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    .feature-link {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      color: #1E3A8A;
-      transition: transform 0.2s;
-      padding: 15px;
-      margin: -10px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .feature-link:hover {
-      transform: translateX(5px);
-      background-color: rgba(30, 58, 138, 0.1);
-    }
-
-    .feature-link svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .features-grid {
-        grid-template-columns: 1fr;
+    // Check for project count updates
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'projectCount') {
+        const innovationsMetric = document.querySelector('.metric[data-target="0"]');
+        if (innovationsMetric) {
+          const newCount = parseInt(e.newValue) || 0;
+          innovationsMetric.setAttribute('data-target', newCount);
+          animateValue(innovationsMetric, parseInt(innovationsMetric.textContent), newCount, 1000);
+        }
       }
-    }
-  </style>
+    });
+  </script>
 </body>
 </html> 

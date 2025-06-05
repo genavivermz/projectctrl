@@ -11,8 +11,54 @@
   <meta name="theme-color" content="#E8F4FF">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css" />
-  <!-- System font stack -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .visibility-tip {
+      background-color: #E8F4FF;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 20px 0 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .visibility-tip svg {
+      flex-shrink: 0;
+      color: #1E3A8A;
+    }
+
+    .visibility-tip p {
+      margin: 0;
+      color: #1E3A8A;
+      font-size: 1.1em;
+      line-height: 1.4;
+      font-weight: normal;
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    label {
+      font-weight: normal;
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
 </head>
 <body>
   <header>
@@ -38,7 +84,7 @@
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        <p>Projects with detailed filter information receive up to 3x more visibility on the Project Hub!</p>
+        <p>Projects with detailed filter information receive boosted visibility on the Project Hub!</p>
       </div>
       
       <!-- Project Basic Information -->
@@ -186,31 +232,6 @@
       <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
     </div>
   </footer>
-
-  <style>
-    .visibility-tip {
-      background-color: #E8F4FF;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin: 20px 0 30px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    .visibility-tip svg {
-      flex-shrink: 0;
-      color: #1E3A8A;
-    }
-
-    .visibility-tip p {
-      margin: 0;
-      color: #1E3A8A;
-      font-size: 1.1em;
-      line-height: 1.4;
-    }
-  </style>
 
   <script>
     document.getElementById('projectSubmissionForm').addEventListener('submit', function(e) {
