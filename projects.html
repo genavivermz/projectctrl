@@ -276,25 +276,6 @@
         sessionStorage.removeItem('projectSubmitted');
       }
     });
-
-    // Function to count projects and update services page
-    function updateProjectCount() {
-      const projectCards = document.querySelectorAll('.project-card');
-      const count = projectCards.length;
-      
-      // Store the count in localStorage for services page
-      localStorage.setItem('projectCount', count);
-    }
-
-    // Run counter on page load
-    document.addEventListener('DOMContentLoaded', updateProjectCount);
-
-    // Run counter after form submission (when new project is added)
-    window.addEventListener('load', function() {
-      if (sessionStorage.getItem('projectSubmitted')) {
-        updateProjectCount();
-      }
-    });
   </script>
 
   <section class="project-filters">

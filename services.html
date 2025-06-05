@@ -252,16 +252,30 @@
       window.requestAnimationFrame(step);
     };
 
+    // Function to count projects from the projects page
+    async function getProjectCount() {
+      try {
+        const response = await fetch('/projectctrl/projects.html');
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const projectCards = doc.querySelectorAll('.project-card');
+        return projectCards.length;
+      } catch (error) {
+        console.error('Error fetching project count:', error);
+        return 0;
+      }
+    }
+
     const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach(async (entry) => {
         if (entry.isIntersecting) {
           const dataTarget = entry.target.getAttribute('data-target');
           
-          // Handle innovations metric (syncs with project count)
+          // Handle innovations metric (counts projects directly)
           if (dataTarget === "0") {
-            const projectCount = localStorage.getItem('projectCount') || 0;
-            const target = parseInt(projectCount);
-            animateValue(entry.target, 0, target, 2000);
+            const projectCount = await getProjectCount();
+            animateValue(entry.target, 0, projectCount, 2000);
           }
           // Handle project templates metric (stays at 0)
           else if (dataTarget === "manual") {
@@ -278,18 +292,6 @@
     });
 
     metrics.forEach(metric => observer.observe(metric));
-
-    // Check for project count updates
-    window.addEventListener('storage', function(e) {
-      if (e.key === 'projectCount') {
-        const innovationsMetric = document.querySelector('.metric[data-target="0"]');
-        if (innovationsMetric) {
-          const newCount = parseInt(e.newValue) || 0;
-          innovationsMetric.setAttribute('data-target', newCount);
-          animateValue(innovationsMetric, parseInt(innovationsMetric.textContent), newCount, 1000);
-        }
-      }
-    });
   </script>
 </body>
 </html> 
