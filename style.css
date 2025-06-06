@@ -448,9 +448,9 @@ footer {
   }
 }
 
-/* Project Cards */
+/* Project Cards - Modern Design with Blue Shades */
 .project-card {
-  background-color: white;
+  background: linear-gradient(135deg, var(--card-bg-1, #E8F4FF) 0%, var(--card-bg-2, #F0F9FF) 100%);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -458,18 +458,81 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  opacity: 0.1;
+  animation: swirl 15s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes swirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card color variations */
+.project-card:nth-child(6n+1) {
+  --card-bg-1: #E8F4FF;
+  --card-bg-2: #C7E2FF;
+}
+
+.project-card:nth-child(6n+2) {
+  --card-bg-1: #EEF2FF;
+  --card-bg-2: #D1DEFF;
+}
+
+.project-card:nth-child(6n+3) {
+  --card-bg-1: #F1F5F9;
+  --card-bg-2: #E2E8F0;
+}
+
+.project-card:nth-child(6n+4) {
+  --card-bg-1: #E0F2FE;
+  --card-bg-2: #BAE6FD;
+}
+
+.project-card:nth-child(6n+5) {
+  --card-bg-1: #F0F9FF;
+  --card-bg-2: #E0F2FE;
+}
+
+.project-card:nth-child(6n+6) {
+  --card-bg-1: #F8FAFC;
+  --card-bg-2: #F1F5F9;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(30, 58, 138, 0.1);
 }
 
+.project-card:hover::before {
+  animation: swirl 10s infinite linear;
+}
+
+/* Update existing project card elements to work with new design */
 .project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .project-title {
@@ -477,69 +540,52 @@ footer {
   color: #1E3A8A;
   margin: 0;
   font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .project-stage {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  background-color: #E8F4FF;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
   color: #1E3A8A;
   white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
 }
 
 .project-description {
-  color: #4B5563;
+  color: #1E3A8A;
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .project-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-}
-
-.creator-name {
-  color: #6B7280;
-}
-
-.project-links {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.project-link {
-  color: #1E3A8A;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.project-link:hover {
-  color: #1e40af;
-  text-decoration: underline;
+  position: relative;
+  z-index: 1;
 }
 
 .project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .tag {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  background-color: #F3F4F6;
-  color: #4B5563;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  color: #1E3A8A;
   white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(30, 58, 138, 0.1);
 }
 
 .tag.primary-tag {
-  background-color: #1E3A8A;
+  background-color: rgba(30, 58, 138, 0.9);
   color: white;
 }
 
